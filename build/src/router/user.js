@@ -7,4 +7,5 @@ const express_1 = __importDefault(require("express"));
 const users_1 = __importDefault(require("../controllers/users"));
 const userRoute = express_1.default.Router();
 userRoute.post("/api/users", users_1.default.add);
+userRoute.put("/api/users/:id", users_1.default.edit);
 exports.default = userRoute;

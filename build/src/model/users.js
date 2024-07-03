@@ -17,6 +17,18 @@ const schemaUser = new mongoose_1.default.Schema({
         type: String,
         required: true,
     },
+    walledAddres: {
+        type: String,
+        default: null,
+    },
+    buktiHash: {
+        type: String,
+        default: null,
+    },
+    created_at: {
+        type: Date,
+        default: Date.now,
+    },
 });
 const UsersCol = mongoose_1.default.model("users", schemaUser, "users");
 exports.default = UsersCol;

@@ -1,7 +1,10 @@
-interface RequestBodyUsers {
+export interface RequestBodyUsers {
   username: string;
   email: string;
   password: string;
 }
 
-export default RequestBodyUsers;
+export interface RequestBodyUsersEdit {
+  walletAddress: string;
+  buktiHash: string;
+}

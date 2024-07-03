@@ -21,8 +21,28 @@ class UsersControl {
                 const body = req.body;
                 yield users_1.default.add(body);
                 const user = new users_2.default(body);
-                yield user.save();
-                res.status(201).json({ message: "Successfully added user" });
+                const insertedID = (yield user.save())._id;
+                res.status(201).json({ message: "Successfully added user", insertedID });
+                return;
+            }
+            catch (err) {
+                next(err);
+            }
+        });
+    }
+    static edit(req, res, next) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const id = req.params.id;
+                const body = req.body;
+                yield users_1.default.edit(body);
+                yield users_2.default.updateOne({ _id: id }, {
+                    $set: {
+                        walledAddres: body.walletAddress,
+                        buktiHash: body.buktiHash,
+                    },
+                });
+                res.status(200).json({ message: "Successfully updated user" });
                 return;
             }
             catch (err) {

@@ -12,10 +12,21 @@ class Schema {
             noHP: joi_1.default.string().trim().required(),
         });
     }
+    static get editSchema() {
+        return joi_1.default.object({
+            walletAddress: joi_1.default.string().trim().required(),
+            buktiHash: joi_1.default.string().trim().required(),
+        });
+    }
 }
 class UserValidation extends Schema {
     static add(body) {
         return this.addSchema.validateAsync(body, {
+            abortEarly: false,
+        });
+    }
+    static edit(body) {
+        return this.editSchema.validateAsync(body, {
             abortEarly: false,
         });
     }
