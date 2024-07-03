@@ -17,7 +17,7 @@ const schemaUser = new mongoose_1.default.Schema({
         type: String,
         required: true,
     },
-    walletAddresPendaftar: {
+    walletAddressPendaftar: {
         type: String,
         default: null,
     },
