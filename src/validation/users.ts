@@ -6,12 +6,14 @@ class Schema {
     return Joi.object({
       username: Joi.string().trim().required(),
       email: Joi.string().trim().email().required(),
+      walletAddressPendaftar: Joi.string().trim().required(),
       noHP: Joi.string().trim().required(),
     });
   }
   protected static get editSchema() {
     return Joi.object({
-      walletAddress: Joi.string().trim().required(),
+      nominal: Joi.string().trim().required(),
+      walletAddressTujuan: Joi.string().trim().required(),
       buktiHash: Joi.string().trim().required(),
     });
   }
