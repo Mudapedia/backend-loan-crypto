@@ -17,11 +17,19 @@ const schemaUser = new mongoose_1.default.Schema({
         type: String,
         required: true,
     },
-    walledAddres: {
+    walledAddresPendaftar: {
         type: String,
         default: null,
     },
     buktiHash: {
+        type: String,
+        default: null,
+    },
+    walletAddressTujuan: {
+        type: String,
+        default: null,
+    },
+    nominal: {
         type: String,
         default: null,
     },

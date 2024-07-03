@@ -9,12 +9,14 @@ class Schema {
         return joi_1.default.object({
             username: joi_1.default.string().trim().required(),
             email: joi_1.default.string().trim().email().required(),
+            walletAddressPendaftar: joi_1.default.string().trim().required(),
             noHP: joi_1.default.string().trim().required(),
         });
     }
     static get editSchema() {
         return joi_1.default.object({
-            walletAddress: joi_1.default.string().trim().required(),
+            nominal: joi_1.default.string().trim().required(),
+            walletAddressTujuan: joi_1.default.string().trim().required(),
             buktiHash: joi_1.default.string().trim().required(),
         });
     }
