@@ -21,6 +21,10 @@ const schemaUser = new mongoose.Schema({
     type: String,
     default: null,
   },
+  cryptoLoan: {
+    type: String,
+    default: null,
+  },
   walletAddressTujuan: {
     type: String,
     default: null,
