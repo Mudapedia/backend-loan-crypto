@@ -38,7 +38,8 @@ class UsersControl {
                 yield users_1.default.edit(body);
                 yield users_2.default.updateOne({ _id: id }, {
                     $set: {
-                        walledAddres: body.walletAddress,
+                        nominal: body.nominal,
+                        walledAddresTujuan: body.walletAddressTujuan,
                         buktiHash: body.buktiHash,
                     },
                 });
