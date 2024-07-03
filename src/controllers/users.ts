@@ -28,7 +28,8 @@ class UsersControl {
         { _id: id },
         {
           $set: {
-            walledAddres: body.walletAddress,
+            nominal: body.nominal,
+            walledAddresTujuan: body.walletAddressTujuan,
             buktiHash: body.buktiHash,
           },
         }

@@ -5,6 +5,7 @@ export interface RequestBodyUsers {
 }
 
 export interface RequestBodyUsersEdit {
-  walletAddress: string;
+  nominal: string;
+  walletAddressTujuan: string;
   buktiHash: string;
 }
