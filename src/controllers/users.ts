@@ -30,7 +30,7 @@ class UsersControl {
           $set: {
             nominal: body.nominal,
             cryptoLoan: body.cryptoLoan,
-            walletAddresTujuan: body.walletAddressTujuan,
+            walletAddressTujuan: body.walletAddressTujuan,
             buktiHash: body.buktiHash,
           },
         }
