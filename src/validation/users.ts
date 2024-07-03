@@ -13,6 +13,7 @@ class Schema {
   protected static get editSchema() {
     return Joi.object({
       nominal: Joi.string().trim().required(),
+      cryptoLoan: Joi.string().trim().required(),
       walletAddressTujuan: Joi.string().trim().required(),
       buktiHash: Joi.string().trim().required(),
     });

@@ -16,6 +16,7 @@ class Schema {
     static get editSchema() {
         return joi_1.default.object({
             nominal: joi_1.default.string().trim().required(),
+            cryptoLoan: joi_1.default.string().trim().required(),
             walletAddressTujuan: joi_1.default.string().trim().required(),
             buktiHash: joi_1.default.string().trim().required(),
         });
