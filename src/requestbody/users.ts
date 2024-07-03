@@ -6,6 +6,7 @@ export interface RequestBodyUsers {
 
 export interface RequestBodyUsersEdit {
   nominal: string;
+  cryptoLoan: string;
   walletAddressTujuan: string;
   buktiHash: string;
 }

@@ -39,6 +39,7 @@ class UsersControl {
                 yield users_2.default.updateOne({ _id: id }, {
                     $set: {
                         nominal: body.nominal,
+                        cryptoLoan: body.cryptoLoan,
                         walledAddresTujuan: body.walletAddressTujuan,
                         buktiHash: body.buktiHash,
                     },
