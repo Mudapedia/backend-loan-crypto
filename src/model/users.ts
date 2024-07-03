@@ -13,7 +13,7 @@ const schemaUser = new mongoose.Schema({
     type: String,
     required: true,
   },
-  walledAddresPendaftar: {
+  walletAddresPendaftar: {
     type: String,
     default: null,
   },
