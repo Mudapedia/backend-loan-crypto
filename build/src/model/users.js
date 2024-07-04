@@ -21,11 +21,11 @@ const schemaUser = new mongoose_1.default.Schema({
         type: String,
         default: null,
     },
-    buktiHash: {
+    cryptoLoan: {
         type: String,
         default: null,
     },
-    cryptoLoan: {
+    nominal: {
         type: String,
         default: null,
     },
@@ -33,9 +33,13 @@ const schemaUser = new mongoose_1.default.Schema({
         type: String,
         default: null,
     },
-    nominal: {
+    buktiHash: {
         type: String,
         default: null,
+    },
+    statusTransaksi: {
+        type: String,
+        default: "belum selesai",
     },
     created_at: {
         type: Date,
