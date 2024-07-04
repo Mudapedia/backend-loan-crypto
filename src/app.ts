@@ -7,7 +7,7 @@ dotenv.config();
 
 const app: express.Application = express();
 
-app.use(cors());
+app.use(cors({ origin: "https://frontend-loan-crypto.vercel.app" }));
 app.use(express.json());
 
 // routing
