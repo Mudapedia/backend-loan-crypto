@@ -5,7 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = __importDefault(require("mongoose"));
 const schemaUser = new mongoose_1.default.Schema({
-    username: {
+    name: {
         type: String,
         required: true,
     },
@@ -17,29 +17,29 @@ const schemaUser = new mongoose_1.default.Schema({
         type: String,
         required: true,
     },
-    walletAddressPendaftar: {
+    walletAddress: {
         type: String,
-        default: null,
+        required: true,
     },
     cryptoLoan: {
         type: String,
-        default: null,
+        default: "",
     },
     nominal: {
         type: String,
-        default: null,
-    },
-    walletAddressTujuan: {
-        type: String,
-        default: null,
+        default: "",
     },
     buktiHash: {
         type: String,
-        default: null,
+        default: "",
     },
     statusTransaksi: {
+        type: Boolean,
+        default: false,
+    },
+    rejectComment: {
         type: String,
-        default: "belum selesai",
+        default: "",
     },
     created_at: {
         type: Date,

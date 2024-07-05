@@ -1,14 +1,10 @@
 export interface RequestBodyUsers {
-  username: string;
+  name: string;
   email: string;
   password: string;
-  waletAddressPendaftar: string;
   noHP: string;
-}
-
-export interface RequestBodyUsersEdit {
-  nominal: string;
+  waletAddress: string;
   cryptoLoan: string;
-  walletAddressTujuan: string;
+  nominal: string;
   buktiHash: string;
 }

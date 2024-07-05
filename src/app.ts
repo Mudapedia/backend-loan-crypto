@@ -5,6 +5,7 @@ import errorHandling from "./middlewares/errorHandling";
 import dotenv from "dotenv";
 import authRoute from "./router/auth";
 import cookieParser from "cookie-parser";
+import adminRoute from "./router/admin";
 dotenv.config();
 
 const app: express.Application = express();
@@ -25,6 +26,7 @@ app.use(express.json());
 
 app.use(userRoute);
 app.use(authRoute);
+app.use(adminRoute);
 app.use(errorHandling);
 
 export default app;

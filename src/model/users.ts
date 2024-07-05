@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const schemaUser = new mongoose.Schema({
-  username: {
+  name: {
     type: String,
     required: true,
   },
@@ -13,29 +13,29 @@ const schemaUser = new mongoose.Schema({
     type: String,
     required: true,
   },
-  walletAddressPendaftar: {
+  walletAddress: {
     type: String,
-    default: null,
+    required: true,
   },
   cryptoLoan: {
     type: String,
-    default: null,
+    default: "",
   },
   nominal: {
     type: String,
-    default: null,
-  },
-  walletAddressTujuan: {
-    type: String,
-    default: null,
+    default: "",
   },
   buktiHash: {
     type: String,
-    default: null,
+    default: "",
   },
   statusTransaksi: {
+    type: Boolean,
+    default: false,
+  },
+  rejectComment: {
     type: String,
-    default: "belum selesai",
+    default: "",
   },
   created_at: {
     type: Date,
