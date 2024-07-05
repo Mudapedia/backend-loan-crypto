@@ -13,6 +13,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const users_1 = __importDefault(require("../model/users"));
+const mongoose_1 = require("mongoose");
+const responseError_1 = __importDefault(require("../middlewares/responseError"));
+const admin_1 = __importDefault(require("../validation/admin"));
 class AdminControl {
     static getUsersTransactionNotFinish(req, res, next) {
         return __awaiter(this, void 0, void 0, function* () {
@@ -39,6 +42,28 @@ class AdminControl {
             }
             catch (err) {
                 next(err);
+            }
+        });
+    }
+    static editComment(req, res, next) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const id = req.params.id;
+                if (!(0, mongoose_1.isValidObjectId)(id)) {
+                    throw new responseError_1.default(400, "Invalid");
+                }
+                const body = req.body;
+                yield admin_1.default.editComment(body);
+                yield users_1.default.updateOne({ _id: id }, {
+                    $set: {
+                        rejectComment: body.comment,
+                    },
+                });
+                res.status(200).json({ message: "update comment successfully" });
+                return;
+            }
+            catch (err) {
+                next(next);
             }
         });
     }
