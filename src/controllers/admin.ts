@@ -1,6 +1,10 @@
 import { Request, Response, NextFunction } from "express";
 import UsersCol from "../model/users";
 import { EntityUsers } from "../entity/users";
+import { isValidObjectId } from "mongoose";
+import ResponseError from "../middlewares/responseError";
+import { RequestBodyAdminComment } from "../requestbody/admin";
+import AdminValidation from "../validation/admin";
 
 class AdminControl {
   static async getUsersTransactionNotFinish(
@@ -32,6 +36,32 @@ class AdminControl {
       return;
     } catch (err) {
       next(err);
+    }
+  }
+
+  static async editComment(req: Request, res: Response, next: NextFunction) {
+    try {
+      const id: string = req.params.id;
+      if (!isValidObjectId(id)) {
+        throw new ResponseError(400, "Invalid");
+      }
+
+      const body: RequestBodyAdminComment = req.body;
+      await AdminValidation.editComment(body);
+
+      await UsersCol.updateOne(
+        { _id: id },
+        {
+          $set: {
+            rejectComment: body.comment,
+          },
+        }
+      );
+
+      res.status(200).json({ message: "update comment successfully" });
+      return;
+    } catch (err) {
+      next(next);
     }
   }
 }
