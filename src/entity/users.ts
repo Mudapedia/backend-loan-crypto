@@ -2,14 +2,14 @@ import { ObjectId } from "mongoose";
 
 export interface EntityUsers {
   _id: ObjectId;
-  username: string;
+  name: string;
   email: string;
   noHP: string;
-  walletAddressPendaftar: string;
+  walletAddress: string;
   cryptoLoan: string;
   nominal: string;
-  walletAddressTujuan: string;
   buktiHash: string;
-  statusTransaksi: string;
+  statusTransaksi: boolean;
+  rejectComment: string;
   created_at: string;
 }

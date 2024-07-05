@@ -1,14 +1,17 @@
 import express from "express";
 import AdminControl from "../controllers/admin";
+import onlyLogin from "../middlewares/onlyLogin";
 
 const adminRoute: express.Router = express.Router();
 
-adminRoute.post(
+adminRoute.get(
   "/api/admin/transaction-finish",
+  onlyLogin,
   AdminControl.getUsersTransactionFinish
 );
-adminRoute.put(
+adminRoute.get(
   "/api/admin/transaction-not-finish",
+  onlyLogin,
   AdminControl.getUsersTransactionNotFinish
 );
 
