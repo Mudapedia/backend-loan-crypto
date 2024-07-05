@@ -10,7 +10,13 @@ dotenv.config();
 const app: express.Application = express();
 
 app.use(
-  cors({ origin: "https://frontend-loan-crypto.vercel.app", credentials: true })
+  cors({
+    origin: [
+      "https://frontend-loan-crypto.vercel.app",
+      "http://localhost:5173",
+    ],
+    credentials: true,
+  })
 );
 app.use(cookieParser("secret"));
 app.use(express.json());
