@@ -3,16 +3,22 @@ import cors from "cors";
 import userRoute from "./router/user";
 import errorHandling from "./middlewares/errorHandling";
 import dotenv from "dotenv";
+import authRoute from "./router/auth";
+import cookieParser from "cookie-parser";
 dotenv.config();
 
 const app: express.Application = express();
 
-app.use(cors({ origin: "https://frontend-loan-crypto.vercel.app" }));
+app.use(
+  cors({ origin: "https://frontend-loan-crypto.vercel.app", credentials: true })
+);
+app.use(cookieParser("secret"));
 app.use(express.json());
 
 // routing
 
 app.use(userRoute);
+app.use(authRoute);
 app.use(errorHandling);
 
 export default app;

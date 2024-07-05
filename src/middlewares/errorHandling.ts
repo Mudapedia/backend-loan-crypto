@@ -1,5 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 import Joi from "joi";
+import ResponseError from "./responseError";
 
 const errorHandling = (
   err: Error,
@@ -14,6 +15,9 @@ const errorHandling = (
 
   if (err instanceof Joi.ValidationError) {
     res.status(400).json({ errors: [err.message.split(".")] });
+    return;
+  } else if (err instanceof ResponseError) {
+    res.status(err.getStatus).json({ errors: [err.message] });
     return;
   }
 
