@@ -46,6 +46,7 @@ class Auth {
                     priority: "high",
                     secure: true,
                     signed: true,
+                    sameSite: "none",
                 });
                 res.status(200).json({ message: "berhasil login" });
                 return;
