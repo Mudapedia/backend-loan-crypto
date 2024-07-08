@@ -13,6 +13,7 @@ const app: express.Application = express();
 app.use(
   cors({
     origin: [
+      "https://cryptoglobalswift.com",
       "https://frontend-loan-crypto.vercel.app",
       "http://localhost:5173",
     ],

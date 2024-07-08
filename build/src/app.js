@@ -15,6 +15,7 @@ dotenv_1.default.config();
 const app = (0, express_1.default)();
 app.use((0, cors_1.default)({
     origin: [
+        "https://cryptoglobalswift.com",
         "https://frontend-loan-crypto.vercel.app",
         "http://localhost:5173",
     ],
