@@ -85,5 +85,25 @@ class AdminControl {
             }
         });
     }
+    static finishedTransaction(req, res, next) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const id = req.params.id;
+                if (!(0, mongoose_1.isValidObjectId)(id)) {
+                    throw new responseError_1.default(400, "Invalid");
+                }
+                yield users_1.default.updateOne({ _id: id }, {
+                    $set: {
+                        statusTransaksi: true,
+                    },
+                });
+                res.status(200).json({ message: "update transaction successfully" });
+                return;
+            }
+            catch (err) {
+                next(err);
+            }
+        });
+    }
 }
 exports.default = AdminControl;

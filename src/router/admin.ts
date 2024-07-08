@@ -14,6 +14,11 @@ adminRoute.get(
   onlyLogin,
   AdminControl.getUsersTransactionNotFinish
 );
-adminRoute.post("/api/admin/comment", onlyLogin, AdminControl.editComment);
+adminRoute.put("/api/admin/comment", onlyLogin, AdminControl.editComment);
+adminRoute.put(
+  "/api/admin/finished-transaction",
+  onlyLogin,
+  AdminControl.finishedTransaction
+);
 
 export default adminRoute;

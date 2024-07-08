@@ -82,6 +82,32 @@ class AdminControl {
       next(next);
     }
   }
+
+  static async finishedTransaction(
+    req: Request,
+    res: Response,
+    next: NextFunction
+  ) {
+    try {
+      const id: string = req.params.id;
+      if (!isValidObjectId(id)) {
+        throw new ResponseError(400, "Invalid");
+      }
+
+      await UsersCol.updateOne(
+        { _id: id },
+        {
+          $set: {
+            statusTransaksi: true,
+          },
+        }
+      );
+      res.status(200).json({ message: "update transaction successfully" });
+      return;
+    } catch (err) {
+      next(err);
+    }
+  }
 }
 
 export default AdminControl;
