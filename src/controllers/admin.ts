@@ -13,9 +13,18 @@ class AdminControl {
     next: NextFunction
   ) {
     try {
-      const user: EntityUsers[] = await UsersCol.find({
-        statusTransaksi: false,
-      });
+      const user: EntityUsers[] = await UsersCol.aggregate([
+        {
+          $match: {
+            statusTransaksi: false,
+          },
+        },
+        {
+          $sort: {
+            created_at: -1,
+          },
+        },
+      ]);
       res.status(200).json({ message: "Successfully added user", data: user });
       return;
     } catch (err) {
@@ -29,9 +38,18 @@ class AdminControl {
     next: NextFunction
   ) {
     try {
-      const user: EntityUsers[] = await UsersCol.find({
-        statusTransaksi: true,
-      });
+      const user: EntityUsers[] = await UsersCol.aggregate([
+        {
+          $match: {
+            statusTransaksi: true,
+          },
+        },
+        {
+          $sort: {
+            created_at: -1,
+          },
+        },
+      ]);
       res.status(200).json({ message: "Successfully added user", data: user });
       return;
     } catch (err) {

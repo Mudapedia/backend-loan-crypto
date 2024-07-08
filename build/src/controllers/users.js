@@ -23,13 +23,16 @@ class UsersControl {
                 const body = req.body;
                 yield users_1.default.add(body);
                 const tanggal = (0, date_fns_1.format)(new Date(2014, 1, 11), "ddMMyyyy");
+                const codeTransaksi = Math.floor(10000 + Math.random() * 90000).toString();
                 body.codeTransaksi =
-                    dec_1.default[body.cryptoLoan] +
-                        tanggal +
-                        Math.floor(10000 + Math.random() * 90000).toString();
+                    dec_1.default[body.cryptoLoan] + tanggal + codeTransaksi;
                 const user = new users_2.default(body);
                 const insertedID = (yield user.save())._id;
-                res.status(201).json({ message: "Successfully added user", insertedID });
+                res.status(201).json({
+                    message: "Successfully added user",
+                    insertedID,
+                    codeTransaksi: codeTransaksi,
+                });
                 return;
             }
             catch (err) {

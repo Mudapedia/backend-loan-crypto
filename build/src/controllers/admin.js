@@ -20,9 +20,18 @@ class AdminControl {
     static getUsersTransactionNotFinish(req, res, next) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const user = yield users_1.default.find({
-                    statusTransaksi: false,
-                });
+                const user = yield users_1.default.aggregate([
+                    {
+                        $match: {
+                            statusTransaksi: false,
+                        },
+                    },
+                    {
+                        $sort: {
+                            created_at: -1,
+                        },
+                    },
+                ]);
                 res.status(200).json({ message: "Successfully added user", data: user });
                 return;
             }
@@ -34,9 +43,18 @@ class AdminControl {
     static getUsersTransactionFinish(req, res, next) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const user = yield users_1.default.find({
-                    statusTransaksi: true,
-                });
+                const user = yield users_1.default.aggregate([
+                    {
+                        $match: {
+                            statusTransaksi: true,
+                        },
+                    },
+                    {
+                        $sort: {
+                            created_at: -1,
+                        },
+                    },
+                ]);
                 res.status(200).json({ message: "Successfully added user", data: user });
                 return;
             }
