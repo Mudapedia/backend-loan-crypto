@@ -2,6 +2,7 @@ import { ObjectId } from "mongoose";
 
 export interface EntityUsers {
   _id: ObjectId;
+  codeTransaksi: string;
   name: string;
   email: string;
   noHP: string;

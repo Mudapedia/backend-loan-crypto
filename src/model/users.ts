@@ -1,6 +1,9 @@
 import mongoose from "mongoose";
 
 const schemaUser = new mongoose.Schema({
+  codeTransaksi: {
+    type: String,
+  },
   name: {
     type: String,
     required: true,

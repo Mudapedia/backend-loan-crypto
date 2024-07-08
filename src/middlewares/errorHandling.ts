@@ -14,7 +14,7 @@ const errorHandling = (
   }
 
   if (err instanceof Joi.ValidationError) {
-    res.status(400).json({ errors: [err.message.split(".")] });
+    res.status(400).json({ errors: err.message.split(".") });
     return;
   } else if (err instanceof ResponseError) {
     res.status(err.getStatus).json({ errors: [err.message] });

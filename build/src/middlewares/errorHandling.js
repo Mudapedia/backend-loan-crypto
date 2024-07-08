@@ -11,7 +11,7 @@ const errorHandling = (err, req, res, next) => {
         return;
     }
     if (err instanceof joi_1.default.ValidationError) {
-        res.status(400).json({ errors: [err.message.split(".")] });
+        res.status(400).json({ errors: err.message.split(".") });
         return;
     }
     else if (err instanceof responseError_1.default) {
