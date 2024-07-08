@@ -9,6 +9,6 @@ const onlyLogin_1 = __importDefault(require("../middlewares/onlyLogin"));
 const adminRoute = express_1.default.Router();
 adminRoute.get("/api/admin/transaction-finish", onlyLogin_1.default, admin_1.default.getUsersTransactionFinish);
 adminRoute.get("/api/admin/transaction-not-finish", onlyLogin_1.default, admin_1.default.getUsersTransactionNotFinish);
-adminRoute.put("/api/admin/comment", onlyLogin_1.default, admin_1.default.editComment);
-adminRoute.put("/api/admin/finished-transaction", onlyLogin_1.default, admin_1.default.finishedTransaction);
+adminRoute.put("/api/admin/comment/:id", onlyLogin_1.default, admin_1.default.editComment);
+adminRoute.put("/api/admin/finished-transaction/:id", onlyLogin_1.default, admin_1.default.finishedTransaction);
 exports.default = adminRoute;
