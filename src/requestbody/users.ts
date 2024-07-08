@@ -10,6 +10,7 @@ export interface RequestBodyUsers {
   noHP: string;
   waletAddress: string;
   cryptoLoan: CrytoLoan;
-  nominal: string;
+  fee: string;
+  loan: string;
   buktiHash: string;
 }

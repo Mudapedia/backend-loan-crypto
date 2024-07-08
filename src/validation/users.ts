@@ -24,7 +24,8 @@ class Schema {
         .messages({
           "any.invalid": "Crypto Loan Value Not Allowed",
         }),
-      nominal: Joi.string().trim().required(),
+      fee: Joi.string().trim().required(),
+      loan: Joi.string().trim().required(),
       buktiHash: Joi.string().trim().required(),
     });
   }

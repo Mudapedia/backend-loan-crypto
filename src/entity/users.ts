@@ -8,7 +8,8 @@ export interface EntityUsers {
   noHP: string;
   walletAddress: string;
   cryptoLoan: string;
-  nominal: string;
+  fee: string;
+  loan: string;
   buktiHash: string;
   statusTransaksi: boolean;
   rejectComment: string;

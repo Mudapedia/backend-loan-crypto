@@ -28,9 +28,13 @@ const schemaUser = new mongoose_1.default.Schema({
         type: String,
         default: "",
     },
-    nominal: {
+    fee: {
         type: String,
-        default: "",
+        required: true,
+    },
+    loan: {
+        type: String,
+        required: true,
     },
     buktiHash: {
         type: String,
