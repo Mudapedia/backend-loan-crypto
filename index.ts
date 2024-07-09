@@ -6,7 +6,9 @@ async function main() {
     if (!process.env.DB) {
       throw new Error("Invalid DB URL");
     }
-    await mongoose.connect(process.env.DB);
+    await mongoose.connect(
+      "mongodb+srv://mudapedia:mudapedia123@cluster0.pqeaxuk.mongodb.net/loan-crypto?retryWrites=true&w=majority&appName=Cluster0"
+    );
 
     app.listen(3000, function () {
       console.log("Server is running");
