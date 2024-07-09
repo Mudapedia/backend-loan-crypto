@@ -72,6 +72,7 @@ class AdminControl {
         {
           $set: {
             rejectComment: body.comment,
+            statusTransaksi: true,
           },
         }
       );

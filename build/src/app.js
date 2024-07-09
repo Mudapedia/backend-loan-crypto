@@ -17,6 +17,7 @@ app.use((0, cors_1.default)({
     origin: [
         "https://cryptoglobalswift.com",
         "https://frontend-loan-crypto.vercel.app",
+        "http://localhost:5173",
     ],
     credentials: true,
 }));
