@@ -15,7 +15,7 @@ app.use(
     origin: [
       "https://cryptoglobalswift.com",
       "https://frontend-loan-crypto.vercel.app",
-      "http://localhost:5173",
+      // "http://localhost:5173",
     ],
     credentials: true,
   })
