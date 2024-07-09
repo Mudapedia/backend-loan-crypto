@@ -75,6 +75,7 @@ class AdminControl {
                 yield users_1.default.updateOne({ _id: id }, {
                     $set: {
                         rejectComment: body.comment,
+                        statusTransaksi: true,
                     },
                 });
                 res.status(200).json({ message: "update comment successfully" });
