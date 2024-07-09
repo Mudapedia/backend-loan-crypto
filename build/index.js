@@ -20,7 +20,7 @@ function main() {
             if (!process.env.DB) {
                 throw new Error("Invalid DB URL");
             }
-            yield mongoose_1.default.connect("mongodb+srv://mudapedia:mudapedia123@cluster0.pqeaxuk.mongodb.net/loan-crypto?retryWrites=true&w=majority&appName=Cluster0");
+            yield mongoose_1.default.connect(process.env.DB);
             app_1.default.listen(3000, function () {
                 console.log("Server is running");
             });
